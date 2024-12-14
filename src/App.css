@@ -1,0 +1,59 @@
+.circle-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: #000;
+  transition: all 0.5s ease;
+}
+
+.menu-open {
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+}
+
+.menu-closed {
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+}
+
+/* Menu animation */
+.menu-animation-open {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* General reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent body scrolling */
+}
+
+.section {
+  height: 100vh; /* Full viewport height */
+  scroll-snap-align: start; /* Snaps the section into view */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div {
+  scroll-snap-type: y mandatory; /* Enable snapping behavior */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+}
+
