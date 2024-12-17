@@ -1,9 +1,10 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-
 import Home from "./pages/Home";
 import Header from "./components/header";
 import AboutUs from "./components/aboutus";
+import Footer from "./components/footer";
+
 
 
 export default function App() {
@@ -16,8 +17,8 @@ export default function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/page3" element={<div>Page 3</div>} />
         <Route path="/page4" element={<div>Page 4</div>} />
-        
       </Routes>
+      <Footer />
      
     </div>
   );

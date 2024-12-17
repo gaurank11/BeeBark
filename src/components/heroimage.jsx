@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -19,22 +19,26 @@ export default function HeroSection() {
     "heroimage0.jpg",
     "heroimage1.jpg",
     "heroimage2.jpg",
-    "heroimage.jpg"
+    "heroimage.jpg",
   ];
 
   return (
-    <div className="relative w-full h-screen overflow-hidden flex items-center justify-center">
+    <div className="relative w-full overflow-hidden">
       {/* Slider */}
-      <Slider {...settings} className="w-full h-full">
+      <Slider {...settings} className="w-full">
         {images.map((image, index) => (
-          <div key={index} className="relative w-full h-full">
-            {/* Background Image */}
-            <div
-              className="w-full h-screen bg-cover bg-center"
-              style={{ backgroundImage: `url('${image}')` }}
-            >
-              <div className="absolute inset-0 bg-black opacity-30"></div>
-            </div>
+          <div
+            key={index}
+            className="relative w-full h-[60vh] sm:h-[70vh] md:h-screen bg-black flex items-center justify-center"
+          >
+            {/* Image with fallback background */}
+            <img
+              src={image}
+              alt={`Slide ${index}`}
+              className="w-full h-full object-contain md:object-cover bg-black"
+            />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black opacity-30"></div>
           </div>
         ))}
       </Slider>

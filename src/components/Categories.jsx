@@ -99,9 +99,9 @@ export function Categories() {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 540,
         settings: {
-          slidesToShow: 3, // Show 3 items for extra small screens
+          slidesToShow: 2, // Show 2 items for extra small screens
           nextArrow: null,
           prevArrow: null,
         },

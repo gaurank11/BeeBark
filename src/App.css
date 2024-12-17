@@ -57,3 +57,43 @@ div {
   -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
 }
 
+
+/* Custom Cursor Styles */
+html, body {
+  cursor: none; /* Hide the default cursor */
+}
+
+/* Base cursor style */
+.cursor {
+  position: absolute;
+  pointer-events: none; /* Prevent blocking interactions */
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.7); /* Light white with transparency */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+  z-index: 9999; /* Ensure it appears on top of other elements */
+}
+
+/* Hover effects on links and buttons */
+a:hover .cursor, button:hover .cursor {
+  width: 35px;
+  height: 35px;
+  background-color: rgba(0, 255, 255, 0.8); /* Cyan color on hover */
+}
+
+/* Hover effect on any other interactive element (e.g., divs, sections, etc.) */
+.interactive:hover .cursor {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 0, 0, 0.8); /* Red color on hover */
+}
+
+.interactive:hover .cursor {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 165, 0, 0.8); /* Orange color */
+}
+
+

@@ -17,14 +17,14 @@ const AboutUs = () => {
               integrity and creativity, we empower builders, architects, and
               designers.
             </p>
-            <button className="px-6 py-3 text-green-700 font-medium border-2 border-green-700 rounded hover:bg-green-700 hover:text-white">
+            <button className="px-6 py-3 text-green-600 font-medium border-2 border-green-600 rounded hover:bg-green-700 hover:text-white">
               Company
             </button>
           </div>
         </div>
 
         {/* Right Grid - Logo */}
-        <div className="bg-green-700 flex items-center justify-center">
+        <div className="bg-green-600 flex items-center justify-center">
           <div className="bg-white p-6 rounded-full shadow-lg">
             <img
               src="/bbark_logo.png"
@@ -36,7 +36,7 @@ const AboutUs = () => {
       </div>
 
       {/* Mobile View */}
-      <div className="md:hidden bg-green-700 flex flex-col justify-between min-h-screen p-6">
+      <div className="md:hidden bg-green-600 flex flex-col justify-between min-h-screen p-6">
         {/* Logo Section */}
         <div className="flex flex-grow items-center justify-center">
           <div className="bg-white p-6 rounded-full shadow-lg">
@@ -57,7 +57,7 @@ const AboutUs = () => {
             solutions inspired by nature’s architects. With integrity and
             creativity, we empower builders, architects, and designers.
           </p>
-          <button className="px-6 py-3 text-green-700 font-medium bg-white rounded border-2 border-white hover:bg-green-600 hover:text-white">
+          <button className="px-6 py-3 text-green-600 font-medium bg-white rounded border-2 border-white hover:bg-green-600 hover:text-white">
             Company
           </button>
         </div>
