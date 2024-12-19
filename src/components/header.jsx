@@ -22,18 +22,20 @@ export default function App() {
             alt="Logo"
             className="w-12 h-12 object-cover"
           />
-          <div className="text-2xl font-bold text-white">TheBeeBark</div>
+          <div className="text-2xl font-bold text-white font-poppins">
+            TheBeeBark
+          </div>
         </div>
 
         {/* Right-side Buttons and Menu Icon */}
         <div className="flex items-center space-x-5">
           {/* Sign In and Join as a Pro */}
           <div className="hidden md:flex items-center space-x-5">
-            <div className="flex items-center text-white font-bold space-x-2 cursor-pointer">
+            <div className="flex items-center text-white font-bold space-x-2 cursor-pointer font-poppins">
               <LogIn className="w-5 h-5" />
               <span>Sign In</span>
             </div>
-            <div className="flex items-center text-white font-bold space-x-2 cursor-pointer md:border-2 md:border-white md:px-4 md:py-2 md:rounded-lg">
+            <div className="flex items-center text-white font-bold space-x-2 cursor-pointer md:border-2 md:border-white md:px-4 md:py-2 md:rounded-lg font-poppins">
               <UserPlus className="w-5 h-5" />
               <span>Join as a Pro</span>
             </div>
@@ -66,7 +68,7 @@ export default function App() {
           {/* Menu Items */}
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 text-center md:text-left">
             <div className="flex flex-col justify-center items-start h-full md:mx-10">
-              <ul className="space-y-7 text-xl md:text-5xl font-bold font-radian text-left md:mx-12">
+              <ul className="space-y-7 text-xl md:text-5xl font-bold font-montserrat text-left md:mx-12">
                 <li>
                   <Link
                     to="/"
@@ -125,18 +127,18 @@ export default function App() {
                 {/* Mobile Only: Sign In and Join as a Pro */}
                 <li className="md:hidden mt-8 border-t pt-4">
                   <div className="flex flex-col items-start space-y-4">
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center space-x-2 font-poppins">
                       <LogIn className="w-5 h-5" />
                       <span>Sign In</span>
                     </div>
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center space-x-2 font-poppins">
                       <UserPlus className="w-5 h-5" />
                       <span>Join as a Pro</span>
                     </div>
-                    <div className="md:hidden text-sm underline text-green-700 mt-5">
+                    <div className="md:hidden text-sm underline text-green-700 mt-5 font-poppins">
                       info@thebeebark.com
                     </div>
-                    <div className="md:hidden text-sm underline text-green-700">
+                    <div className="md:hidden text-sm underline text-green-700 font-poppins">
                       +91 7701858312
                     </div>
                   </div>
@@ -147,10 +149,10 @@ export default function App() {
 
           {/* Contact Info and Social Media Icons */}
           <div className="hidden md:flex flex-col items-start space-y-5 justify-center mx-12 mt-10">
-            <div className="text-xl underline font-bold text-green-700">
+            <div className="text-xl underline font-bold text-green-700 font-poppins">
               info@thebeebark.com
             </div>
-            <div className="text-xl underline font-bold text-green-700">
+            <div className="text-xl underline font-bold text-green-700 font-poppins">
               +91 7701858312
             </div>
             <div className="flex space-x-4 mt-4">
@@ -179,8 +181,6 @@ export default function App() {
           </div>
         </div>
       </motion.div>
-
-  
     </>
   );
 }

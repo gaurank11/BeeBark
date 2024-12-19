@@ -8,16 +8,16 @@ const AboutUs = () => {
         {/* Left Grid - Content */}
         <div className="bg-white flex flex-col justify-center items-center p-8">
           <div className="max-w-md text-left">
-            <h2 className="text-3xl font-bold mb-4 text-gray-800">
+            <h2 className="text-3xl font-bold mb-4 text-gray-800 font-montserrat">
               Real Solutions for Real Estate
             </h2>
-            <p className="text-lg text-gray-600 mb-6 text-justify">
+            <p className="text-lg text-gray-600 mb-6 text-justify font-poppins">
               At <span className="font-bold text-green-600">TheBeeBark</span>,
               we craft digital solutions inspired by nature’s architects. With
               integrity and creativity, we empower builders, architects, and
               designers.
             </p>
-            <button className="px-6 py-3 text-green-600 font-medium border-2 border-green-600 rounded hover:bg-green-700 hover:text-white">
+            <button className="px-6 py-3 text-green-600 font-medium border-2 border-green-600 rounded hover:bg-green-700 hover:text-white font-poppins">
               Company
             </button>
           </div>
@@ -49,15 +49,15 @@ const AboutUs = () => {
         </div>
         {/* Text Section */}
         <div className="text-left text-white max-w-sm mt-auto">
-          <h2 className="text-2xl font-bold mb-4">
+          <h2 className="text-2xl font-bold mb-4 font-montserrat">
             Real Solutions for Real Estate
           </h2>
-          <p className="text-base mb-6">
+          <p className="text-base mb-6 font-poppins">
             At <span className="font-bold">TheBeeBark</span>, we craft digital
             solutions inspired by nature’s architects. With integrity and
             creativity, we empower builders, architects, and designers.
           </p>
-          <button className="px-6 py-3 text-green-600 font-medium bg-white rounded border-2 border-white hover:bg-green-600 hover:text-white">
+          <button className="px-6 py-3 text-green-600 font-medium bg-white rounded border-2 border-white hover:bg-green-600 hover:text-white font-poppins">
             Company
           </button>
         </div>

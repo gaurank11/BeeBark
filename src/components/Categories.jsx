@@ -49,7 +49,7 @@ const categories = [
   {
     image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/77b5b783911401.5d4b03c198716.png',
     name: 'Portfolio Websites',
-    description: 'Showcase your work with stunning portfolio templates.',
+    description: 'Showcase your work with stunning, creative portfolio templates.',
   },
   {
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo36oot-PAY0BS_vLDVk08_XEV9wyZJZKSWg&s',
@@ -72,7 +72,6 @@ const categories = [
     description: 'Unique, visually stunning designs for creatives.',
   },
 ];
-
 
 export function Categories() {
   const settings = {
@@ -125,25 +124,24 @@ export function Categories() {
 
         {/* Carousel Section */}
         <Slider {...settings}>
-  {categories.map((category) => (
-    <div key={category.name} className="p-4">
-      <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105">
-        <div className="overflow-hidden rounded-lg mb-4">
-          <img
-            src={category.image}
-            alt={category.name}
-            className="w-full h-40 object-cover transition-transform transform hover:scale-110"
-          />
-        </div>
-        <div className="text-center">
-          <h3 className="font-semibold text-lg text-gray-900">{category.name}</h3>
-         
-        </div>
-      </div>
-    </div>
-  ))}
-</Slider>
-
+          {categories.map((category) => (
+            <div key={category.name} className="p-4">
+              <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105 h-full">
+                <div className="overflow-hidden rounded-lg mb-4">
+                  <img
+                    src={category.image}
+                    alt={category.name}
+                    className="w-full h-40 object-cover transition-transform transform hover:scale-110"
+                  />
+                </div>
+                <div className="flex flex-col justify-between h-full text-center p-4">
+                  <h3 className="font-semibold text-lg text-gray-900">{category.name}</h3>
+                  <p className="text-sm text-gray-600 mt-2">{category.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
       </div>
     </section>
   );

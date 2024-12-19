@@ -7,7 +7,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black text-white py-12">
+    <footer className="bg-black text-white py-12 font-montserrat">
       {/* Footer Container */}
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row justify-between lg:space-x-12">
@@ -27,7 +27,7 @@ export default function Footer() {
 
             {/* About Section */}
             <div className="mb-8">
-              <h3 className="text-2xl font-bold mb-4 md:text-4xl">About Us</h3>
+              <h3 className="text-2xl font-bold mb-4 md:text-4xl font-poppins">About Us</h3>
               <p className="text-md text-gray-300 leading-relaxed md:text-xl font-semibold">
                 Beebark is committed to delivering excellence and providing
                 high-quality services to meet your needs. We strive for innovation
@@ -53,25 +53,28 @@ export default function Footer() {
           <div className="lg:w-1/2">
             {/* Get in Touch */}
             <div className="mb-8">
-              <h3 className="text-2xl font-bold mb-4 md:text-3xl">Get in Touch</h3>
+              <h3 className="text-2xl font-bold mb-4 md:text-3xl font-poppins">Get in Touch</h3>
               <p className="text-md text-green-600 font-semibold md:text-xl">
-                <span className="block mb-2"><a href="tel:+917701858312" className="hover:text-green-700">+91 7701858312</a></span>
-                <span className="block"><a href="mailto:info@thebeebark.com" className="hover:text-green-700">info@thebeebark.com</a></span>
+                <span className="block mb-2">
+                  <a href="tel:+917701858312" className="hover:text-green-700">+91 7701858312</a>
+                </span>
+                <span className="block">
+                  <a href="mailto:info@thebeebark.com" className="hover:text-green-700">info@thebeebark.com</a>
+                </span>
               </p>
             </div>
 
             {/* Explore Links */}
             <div>
-              <h3 className="text-2xl font-bold mb-4 md:text-3xl">Explore</h3>
-              <div className="flex flex-col md:flex-row flex-wrap gap-4 md:text-xl font-semibold">
+              <h3 className="text-2xl font-bold mb-4 md:text-3xl font-poppins">Explore</h3>
+              <div className="flex flex-col md:flex-row flex-wrap gap-4 md:text-xl font-semibold text-gray-500">
                 <a href="#work" className="text-md hover:text-gray-400 transition">
                   Work
                 </a>
                 <a href="#services" className="text-md hover:text-gray-400 transition">
                   Services
                 </a>
-                <a 
-                href="#aboutus" className="text-md hover:text-gray-400 transition">
+                <a href="#aboutus" className="text-md hover:text-gray-400 transition">
                   About
                 </a>
                 <a href="#contact" className="text-md hover:text-gray-400 transition">
@@ -82,7 +85,6 @@ export default function Footer() {
           </div>
         </div>
 
-     
         <div className="border-t border-gray-700 mt-12 pt-6 text-center">
           <p className="text-gray-500 text-sm lg:text-md">
             © 2024 Beebark. All Rights Reserved.

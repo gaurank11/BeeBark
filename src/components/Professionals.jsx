@@ -105,10 +105,10 @@ export function Professionals() {
     <section className="py-16 bg-gray-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Section Header */}
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 font-montserrat">
           Clientele and Portfolio
         </h2>
-        <p className="text-gray-600 mb-10">
+        <p className="text-gray-600 mb-10 font-poppins">
           Showcasing our esteemed clients and diverse projects from across the globe.
         </p>
 
@@ -123,10 +123,12 @@ export function Professionals() {
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="font-semibold text-lg text-gray-900">{item.name}</h3>
-                  <p className="text-green-700 text-sm mb-2">{item.category}</p>
-                  <p className="text-gray-600 text-sm mb-4">{item.description}</p>
-                  <span className="text-gray-500 text-sm">
+                  <h3 className="font-semibold text-lg text-gray-900 font-montserrat">
+                    {item.name}
+                  </h3>
+                  <p className="text-green-700 text-sm mb-2 font-poppins">{item.category}</p>
+                  <p className="text-gray-600 text-sm mb-4 font-poppins">{item.description}</p>
+                  <span className="text-gray-500 text-sm font-poppins">
                     {item.projects} Completed Projects
                   </span>
                 </div>

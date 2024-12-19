@@ -5,15 +5,15 @@ import { Professionals } from '../components/Professionals';
 
 import AboutUs from '../components/aboutus';
 import Hero1 from '../components/DreamHero';
-import HeroImage from '../components/heroimage';
+import HeroSection from '../components/Hero';
+
 
 const Home = () => {
   
       
   return (
    <>
-        <HeroImage />
-     
+     <HeroSection />
         <Hero1 />
       
         <AboutUs />
