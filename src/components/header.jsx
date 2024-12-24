@@ -14,7 +14,7 @@ export default function App() {
   return (
     <>
       {/* Header Section */}
-      <header className="fixed top-0 left-0 w-full p-5 flex justify-between items-center z-50 bg-black">
+      <header className="fixed top-0 left-0 w-full p-5 flex justify-between items-center z-50 bg-white">
         {/* Logo and Name */}
         <div className="flex items-center">
           <img
@@ -22,7 +22,7 @@ export default function App() {
             alt="Logo"
             className="w-12 h-12 object-cover"
           />
-          <div className="text-2xl font-bold text-white font-poppins">
+          <div className="text-2xl font-bold text-black font-poppins">
             TheBeeBark
           </div>
         </div>
@@ -31,11 +31,13 @@ export default function App() {
         <div className="flex items-center space-x-5">
           {/* Sign In and Join as a Pro */}
           <div className="hidden md:flex items-center space-x-5">
-            <div className="flex items-center text-white font-bold space-x-2 cursor-pointer font-poppins">
+            <div className="flex items-center text-black font-bold space-x-2 cursor-pointer font-poppins">
               <LogIn className="w-5 h-5" />
-              <span>Sign In</span>
+              <span> <Link to="/login" className="hover:text-gray-700" >
+                    Login
+                  </Link></span>
             </div>
-            <div className="flex items-center text-white font-bold space-x-2 cursor-pointer md:border-2 md:border-white md:px-4 md:py-2 md:rounded-lg font-poppins">
+            <div className="flex items-center text-black font-bold space-x-2 cursor-pointer md:border-2 md:border-white md:px-4 md:py-2 md:rounded-lg font-poppins">
               <UserPlus className="w-5 h-5" />
               <span>Join as a Pro</span>
             </div>
@@ -43,13 +45,13 @@ export default function App() {
 
           {/* Menu Icon */}
           <div
-            className="flex items-center justify-center w-12 h-12 rounded-full cursor-pointer border-2 border-white bg-white"
+            className="flex items-center justify-center w-12 h-12 rounded-full cursor-pointer border-2 border-black bg-black"
             onClick={toggleMenu}
           >
             {menuOpen ? (
-              <XMarkIcon className="w-8 h-8 text-black" />
+              <XMarkIcon className="w-8 h-8 text-white" />
             ) : (
-              <Bars3Icon className="w-8 h-8 text-black" />
+              <Bars3Icon className="w-8 h-8 text-white" />
             )}
           </div>
         </div>

@@ -34,10 +34,10 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black opacity-40"></div>
 
       {/* Bottom-Left Text and Button */}
-      <div className="absolute bottom-16 left-8 bg-black bg-opacity-60 p-6 rounded-xl max-w-md">
-        <p className="text-lg md:text-2xl text-white font-semibold mb-4 font-montserrat">
+      <div className="absolute bottom-16 left-8 p-6 rounded-xl max-w-md">
+        <div className="text-lg md:text-[30px] text-white font-semibold mb-4 font-montserrat leading-relaxed">
           “The future belongs to those who believe in the beauty of their dreams.”
-        </p>
+        </div>
         <button
           className="px-6 py-3 border-2 border-green-500 text-green-500 text-sm md:text-base font-semibold rounded-lg shadow-lg hover:bg-green-500 hover:text-white transition-all font-poppins"
           onClick={handleLearnMore}

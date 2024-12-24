@@ -8,10 +8,10 @@ const AboutUs = () => {
         {/* Left Grid - Content */}
         <div className="bg-white flex flex-col justify-center items-center p-8">
           <div className="max-w-md text-left">
-            <h2 className="text-3xl font-bold mb-4 text-gray-800 font-montserrat">
+            <h2 className="text-5xl font-bold mb-4 text-gray-800 font-montserrat">
               Real Solutions for Real Estate
             </h2>
-            <p className="text-lg text-gray-600 mb-6 text-justify font-poppins">
+            <p className="text-2xl text-gray-600 mb-6 text-justify font-poppins">
               At <span className="font-bold text-green-600">TheBeeBark</span>,
               we craft digital solutions inspired by nature’s architects. With
               integrity and creativity, we empower builders, architects, and
