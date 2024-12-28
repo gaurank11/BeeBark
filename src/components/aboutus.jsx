@@ -6,12 +6,12 @@ const AboutUs = () => {
       {/* Desktop and Laptop View */}
       <div className="hidden md:grid md:grid-cols-2 min-h-screen">
         {/* Left Grid - Content */}
-        <div className="bg-white flex flex-col justify-center items-center p-8">
+        <div className="bg-black flex flex-col justify-center items-center p-8">
           <div className="max-w-md text-left">
-            <h2 className="text-5xl font-bold mb-4 text-gray-800 font-montserrat">
+            <h2 className="text-5xl font-bold mb-4 text-white font-montserrat">
               Real Solutions for Real Estate
             </h2>
-            <p className="text-2xl text-gray-600 mb-6 text-justify font-poppins">
+            <p className="text-2xl text-gray-100 mb-6 text-left font-poppins">
               At <span className="font-bold text-green-600">TheBeeBark</span>,
               we craft digital solutions inspired by nature’s architects. With
               integrity and creativity, we empower builders, architects, and

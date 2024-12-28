@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],
       poppins: ['Poppins', 'sans-serif'],
+      sans: ['Gotham SSm B', 'Gotham SSm A', 'Helvetica', 'Roboto', 'Arial', 'sans-serif']
       },
       screens: {
         sm: "640px",

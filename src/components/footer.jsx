@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowUp, ArrowRight, Facebook, Twitter, Instagram, X } from "lucide-react";
+import { ArrowUp, Facebook, Twitter, Instagram, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -36,10 +36,9 @@ export default function Footer() {
               <div className="mb-8">
                 <button
                   onClick={toggleDemoPopup}
-                  className="text-2xl font-bold mb-4 md:text-4xl font-poppins flex items-center hover:text-gray-300 transition"
+                  className="text-2xl font-bold mb-4 md:text-4xl font-poppins flex items-center justify-center bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition"
                 >
                   Get Started
-                  <ArrowRight className="ml-3 text-white" size={24} />
                 </button>
                 <p className="text-md text-gray-300 leading-relaxed md:text-xl font-semibold">
                   Beebark is committed to delivering excellence and providing

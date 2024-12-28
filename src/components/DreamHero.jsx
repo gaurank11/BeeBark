@@ -32,7 +32,7 @@ const Hero1 = () => {
       </div>
 
       {/* TheBeeBark PRO Section (38%) */}
-      <div className="lg:w-[38vw] bg-[rgb(51,51,51)] text-white flex flex-col justify-center px-[4vw] py-[5vh]">
+      <div className="lg:w-[38vw] bg-black text-white flex flex-col justify-center px-[4vw] py-[5vh]">
         <h2 className="text-3xl md:text-left mb-[2vw] font-poppins">
           <span className="text-white font-bold">TheBeeBark</span> <span className="text-green-500 font-semibold">PRO</span>
         </h2>
@@ -44,7 +44,7 @@ const Hero1 = () => {
           <input
             type="email"
             placeholder="Business Email"
-            className="p-[15px] border bg-[rgb(51,51,51)] rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="p-[15px] border bg-black rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
             required
           />
           <button

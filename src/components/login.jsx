@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
 
   const handleLogin = (e) => {
@@ -12,15 +12,19 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 font-poppins">
-      <div className="flex w-full max-w-4xl bg-white rounded-lg shadow-lg h-[560px] sm:h-auto flex-col sm:flex-row">
+      <div className="flex flex-col sm:flex-row w-full max-w-4xl bg-white rounded-lg shadow-lg mt-20 sm:mt-0">
         {/* Left side: Login Form */}
         <div className="w-full sm:w-1/2 p-8 space-y-6 flex flex-col justify-between">
-          <h2 className="text-3xl font-semibold text-gray-800 text-center font-montserrat">TheBeeBark Login</h2>
+          <h2 className="text-3xl font-semibold text-gray-800 text-center font-montserrat">
+            TheBeeBark Login
+          </h2>
 
           <form onSubmit={handleLogin} className="space-y-4">
             {/* Email Input */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-600">Email</label>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-600">
+                Email
+              </label>
               <input
                 id="email"
                 type="email"
@@ -34,7 +38,9 @@ const LoginPage = () => {
 
             {/* Password Input */}
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-600">Password</label>
+              <label htmlFor="password" className="block text-sm font-medium text-gray-600">
+                Password
+              </label>
               <input
                 id="password"
                 type="password"
@@ -55,7 +61,9 @@ const LoginPage = () => {
                 onChange={() => setRememberMe(!rememberMe)}
                 className="h-4 w-4 text-blue-600 border-gray-300 rounded"
               />
-              <label htmlFor="remember" className="ml-2 text-sm text-gray-600">Keep me signed in</label>
+              <label htmlFor="remember" className="ml-2 text-sm text-gray-600">
+                Keep me signed in
+              </label>
             </div>
 
             {/* Sign In Button */}
@@ -68,51 +76,60 @@ const LoginPage = () => {
 
             {/* Forgot Password Link */}
             <div className="text-center mt-4 text-sm text-gray-600">
-              <a href="#" className="hover:text-blue-600">Forgot Password?</a>
+              <a href="#" className="hover:text-blue-600">
+                Forgot Password?
+              </a>
             </div>
 
             {/* Join Us Link */}
             <div className="text-center text-sm text-gray-600 mt-4">
               <span>Don't have an account? </span>
-              <a href="/sign-up" className="text-green-600 hover:text-green-800">Join Us</a>
+              <a href="/sign-up" className="text-green-600 hover:text-green-800">
+                Join Us
+              </a>
             </div>
           </form>
 
           {/* Legal Terms */}
           <div className="text-xs text-center mt-6 text-gray-500">
-            By signing up, signing in, or continuing, I agree to the <a href="/terms" className="text-green-600 hover:text-green-800">Terms and Conditions</a> and <a href="/privacy" className="text-green-600 hover:text-green-800">Privacy Policy</a>.
+            By signing up, signing in, or continuing, I agree to the{" "}
+            <a href="/terms" className="text-green-600 hover:text-green-800">
+              Terms and Conditions
+            </a>{" "}
+            and{" "}
+            <a href="/privacy" className="text-green-600 hover:text-green-800">
+              Privacy Policy
+            </a>
+            .
           </div>
         </div>
 
-        {/* Right side: Image and Social Login */}
-        <div 
-          className="w-full sm:w-1/2 bg-cover bg-center rounded-r-lg relative" 
-          style={{ 
-            backgroundImage: "url('/logochill.png')", 
-            backgroundSize: 'contain', 
-            backgroundPosition: 'center', 
-            backgroundRepeat: 'no-repeat' 
-          }}
-        >
-          {/* Social Media Login Buttons */}
-          <div className="absolute bottom-0 left-0 right-0 bg-white p-4 flex flex-col justify-center space-y-4" style={{ height: '30%' }}>
-            <button className="w-full py-2 text-black font-semibold rounded-md border-2 border-black hover:bg-gray-100 focus:outline-none">
-              <span className="flex items-center justify-center">
-                <img src="/google_logo.png" alt="Google" className="mr-2 h-5 w-5" />
-                Continue with Google
-              </span>
+        {/* Right side: Image + Continue Buttons */}
+        <div className="w-full sm:w-1/2 flex flex-col items-center justify-center bg-cover bg-center rounded-t-lg sm:rounded-r-lg relative">
+          {/* Image */}
+          <div
+            className="w-full sm:h-2/3 bg-cover bg-center hidden sm:block"
+            style={{
+              backgroundImage: "url('/logo-chill.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          ></div>
+
+          {/* Continue Buttons (for mobile and desktop) */}
+          <div className="w-full p-6 bg-white flex flex-col items-center space-y-4">
+            <button className="w-full py-2 text-black font-semibold rounded-md border-2 border-black hover:bg-gray-100 focus:outline-none flex items-center justify-center">
+              <img src="/google_logo.png" alt="Google" className="mr-2 h-5 w-5" />
+              Continue with Google
             </button>
-            <button className="w-full py-2 text-black font-semibold rounded-md border-2 border-black hover:bg-gray-100 focus:outline-none">
-              <span className="flex items-center justify-center">
-                <img src="/apple_logo.png" alt="Apple" className="mr-2 h-5 w-5" />
-                Continue with Apple
-              </span>
+            <button className="w-full py-2 text-black font-semibold rounded-md border-2 border-black hover:bg-gray-100 focus:outline-none flex items-center justify-center">
+              <img src="/apple_logo.png" alt="Apple" className="mr-2 h-5 w-5" />
+              Continue with Apple
             </button>
-            <button className="w-full py-2 text-black font-semibold rounded-md border-2 border-black hover:bg-gray-100 focus:outline-none">
-              <span className="flex items-center justify-center">
-                <img src="/facebook_logo.png" alt="Facebook" className="mr-2 h-5 w-5" />
-                Continue with Facebook
-              </span>
+            <button className="w-full py-2 text-black font-semibold rounded-md border-2 border-black hover:bg-gray-100 focus:outline-none flex items-center justify-center">
+              <img src="/facebook_logo.png" alt="Facebook" className="mr-2 h-5 w-5" />
+              Continue with Facebook
             </button>
           </div>
         </div>

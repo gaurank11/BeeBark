@@ -7,25 +7,26 @@ export default function Contact() {
   const sections = [
     {
       title: "Professionals",
-      image: "https://img.etimg.com/photo/msid-64916939,imgsize-228828/images(5).jpg",
+      image: "/c1.jpeg",
     },
     {
-      title: "Account & Privacy",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCh4TUUlkMB0Y7UWZTAt-rEtWm8AcIeZ05zQ&s",
+      title: "Social Media",
+      image: "/c4.jpeg",
     },
     {
-      title: "Website Help",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM9vQ8ww4Q8wOinMwwtlRu6O4cSlTHqwgjvg&s",
+      title: "Website",
+      image: "/c3.jpeg",
     },
     {
-      title: "Technical Support",
-      image: "https://static.vecteezy.com/system/resources/previews/002/756/259/non_2x/technical-support-customer-help-tech-support-customer-service-business-and-technology-concept-wireframe-hand-touching-digital-interface-vector.jpg",
+      title: "Customer",
+      image: "/c2.jpeg",
     },
   ];
 
   return (
-    <div className="bg-gray-50 pt-20 px-6">
+    <div className="bg-gray-50 pt-28 pb-20 px-6">
       <div className="max-w-screen-xl mx-auto px-4 lg:px-8">
+        {/* Header Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Help Center</h1>
           <p className="text-lg text-gray-600">
@@ -34,20 +35,22 @@ export default function Contact() {
         </div>
 
         {/* Help Sections */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {sections.map((section, index) => (
             <div
               key={index}
-              className="relative group cursor-pointer"
+              className="relative group cursor-pointer w-full"
               onClick={() => navigate("/LetsTalk", { state: { helpType: section.title } })}
             >
+              {/* Image */}
               <img
                 src={section.image}
                 alt={section.title}
-                className="w-full h-56 object-cover rounded-lg shadow-lg"
+                className="w-full aspect-square object-cover rounded-lg shadow-lg"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center rounded-lg transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                <h2 className="text-white text-2xl font-bold">{section.title}</h2>
+              {/* Overlay and Title */}
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center rounded-lg">
+                <h2 className="text-white text-xl font-bold">{section.title}</h2>
               </div>
             </div>
           ))}

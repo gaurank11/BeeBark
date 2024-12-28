@@ -18,10 +18,10 @@ export default function LetsTalk() {
   };
 
   return (
-    <div className="bg-white pt-20 px-6">
+    <div className="bg-white pt-28 pb-16 px-6">
       <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Form Section */}
-        <div>
+        <div className="min-h-[300px]">
           <h1 className="text-4xl font-bold text-gray-900 mb-6">Let's Talk</h1>
           <form onSubmit={handleSubmit}>
             <div className="mb-6">
@@ -96,9 +96,9 @@ export default function LetsTalk() {
         {/* Image Section */}
         <div className="flex items-center justify-center">
           <img
-            src="https://img.freepik.com/free-vector/organic-flat-man-customer-support_23-2148893295.jpg"
-            alt="Contact Illustration"
-            className="w-full max-w-sm rounded-lg shadow-lg"
+            src="/c5.jpeg"
+            alt="Let's talk"
+            className="w-full max-w-lg rounded-lg shadow-lg"
           />
         </div>
       </div>

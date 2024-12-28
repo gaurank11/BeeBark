@@ -33,13 +33,20 @@ export default function App() {
           <div className="hidden md:flex items-center space-x-5">
             <div className="flex items-center text-black font-bold space-x-2 cursor-pointer font-poppins">
               <LogIn className="w-5 h-5" />
-              <span> <Link to="/login" className="hover:text-gray-700" >
+              <span> <Link to="/login" 
+              onClick={() => setMenuOpen(false)}className="hover:text-gray-700" >
                     Login
                   </Link></span>
             </div>
             <div className="flex items-center text-black font-bold space-x-2 cursor-pointer md:border-2 md:border-white md:px-4 md:py-2 md:rounded-lg font-poppins">
               <UserPlus className="w-5 h-5" />
-              <span>Join as a Pro</span>
+              <span><Link
+                    to="/join"
+                    onClick={() => setMenuOpen(false)}
+                    className="hover:text-gray-700"
+                  > 
+                  Join as a Pro
+                  </Link></span>
             </div>
           </div>
 
@@ -131,11 +138,23 @@ export default function App() {
                   <div className="flex flex-col items-start space-y-4">
                     <div className="flex items-center space-x-2 font-poppins">
                       <LogIn className="w-5 h-5" />
-                      <span>Sign In</span>
+                      <span> <Link
+                    to="/login"
+                    onClick={() => setMenuOpen(false)}
+                    className="hover:text-gray-700"
+                  >
+                    Login
+                  </Link></span>
                     </div>
                     <div className="flex items-center space-x-2 font-poppins">
                       <UserPlus className="w-5 h-5" />
-                      <span>Join as a Pro</span>
+                      <span><Link
+                    to="/join"
+                    onClick={() => setMenuOpen(false)}
+                    className="hover:text-gray-700"
+                  > 
+                  Join as a Pro
+                  </Link></span>
                     </div>
                     <div className="md:hidden text-sm underline text-green-700 mt-5 font-poppins">
                       info@thebeebark.com
