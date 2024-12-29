@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/outline";
-import { LogIn, UserPlus, Instagram, Twitter, Facebook } from "lucide-react"; // Import lucide-react icons
-import { motion } from "framer-motion"; // Import framer-motion for animations
+import { LogIn, UserPlus, Instagram, Twitter, Facebook } from "lucide-react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom"; // React Router for navigation
 
 export default function App() {
@@ -15,16 +15,15 @@ export default function App() {
     <>
       {/* Header Section */}
       <header className="fixed top-0 left-0 w-full p-5 flex justify-between items-center z-50 bg-white">
-        {/* Logo and Name */}
-        <div className="flex items-center">
-          <img
-            src="/bbark_logo.png"
-            alt="Logo"
-            className="w-12 h-12 object-cover"
-          />
-          <div className="text-2xl font-bold text-black font-poppins">
-            TheBeeBark
-          </div>
+       
+        <div className="flex-shrink-0">
+          <Link to="/" onClick={() => setMenuOpen(false)}>
+            <img
+              src="/bb-logo.png" // Replace with the actual image path
+              alt="Logo"
+              className="h-12 w-auto" // Increased size for better visibility
+            />
+          </Link>
         </div>
 
         {/* Right-side Buttons and Menu Icon */}
@@ -33,20 +32,27 @@ export default function App() {
           <div className="hidden md:flex items-center space-x-5">
             <div className="flex items-center text-black font-bold space-x-2 cursor-pointer font-poppins">
               <LogIn className="w-5 h-5" />
-              <span> <Link to="/login" 
-              onClick={() => setMenuOpen(false)}className="hover:text-gray-700" >
-                    Login
-                  </Link></span>
+              <span>
+                <Link
+                  to="/login"
+                  onClick={() => setMenuOpen(false)}
+                  className="hover:text-gray-700"
+                >
+                  Login
+                </Link>
+              </span>
             </div>
             <div className="flex items-center text-black font-bold space-x-2 cursor-pointer md:border-2 md:border-white md:px-4 md:py-2 md:rounded-lg font-poppins">
               <UserPlus className="w-5 h-5" />
-              <span><Link
-                    to="/join"
-                    onClick={() => setMenuOpen(false)}
-                    className="hover:text-gray-700"
-                  > 
+              <span>
+                <Link
+                  to="/join"
+                  onClick={() => setMenuOpen(false)}
+                  className="hover:text-gray-700"
+                >
                   Join as a Pro
-                  </Link></span>
+                </Link>
+              </span>
             </div>
           </div>
 
@@ -138,23 +144,27 @@ export default function App() {
                   <div className="flex flex-col items-start space-y-4">
                     <div className="flex items-center space-x-2 font-poppins">
                       <LogIn className="w-5 h-5" />
-                      <span> <Link
-                    to="/login"
-                    onClick={() => setMenuOpen(false)}
-                    className="hover:text-gray-700"
-                  >
-                    Login
-                  </Link></span>
+                      <span>
+                        <Link
+                          to="/login"
+                          onClick={() => setMenuOpen(false)}
+                          className="hover:text-gray-700"
+                        >
+                          Login
+                        </Link>
+                      </span>
                     </div>
                     <div className="flex items-center space-x-2 font-poppins">
                       <UserPlus className="w-5 h-5" />
-                      <span><Link
-                    to="/join"
-                    onClick={() => setMenuOpen(false)}
-                    className="hover:text-gray-700"
-                  > 
-                  Join as a Pro
-                  </Link></span>
+                      <span>
+                        <Link
+                          to="/join"
+                          onClick={() => setMenuOpen(false)}
+                          className="hover:text-gray-700"
+                        >
+                          Join as a Pro
+                        </Link>
+                      </span>
                     </div>
                     <div className="md:hidden text-sm underline text-green-700 mt-5 font-poppins">
                       info@thebeebark.com

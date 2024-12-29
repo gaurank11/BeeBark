@@ -6,6 +6,7 @@ import { Professionals } from '../components/Professionals';
 import AboutUs from '../components/aboutus';
 import Hero1 from '../components/DreamHero';
 import HeroSection from '../components/Hero';
+import Services from '../components/services';
 
 
 const Home = () => {
@@ -17,11 +18,12 @@ const Home = () => {
         <Hero1 />
       
         <AboutUs />
+        <Professionals />
     
         <Categories />
+        <Services />
        
-    
-        <Professionals />
+  
 
     </>
       

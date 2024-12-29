@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS styles
 
 // Custom Arrow Components
 const NextArrow = ({ onClick }) => (
   <div
-    className="absolute top-1/2 right-[-30px] transform -translate-y-1/2 text-black hover:text-gray-900 cursor-pointer z-10"
+    className="absolute top-1/2 right-[-40px] transform -translate-y-1/2 text-white hover:text-gray-300 cursor-pointer z-10"
     onClick={onClick}
+    style={{ zIndex: 10 }}
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -24,8 +27,9 @@ const NextArrow = ({ onClick }) => (
 
 const PrevArrow = ({ onClick }) => (
   <div
-    className="absolute top-1/2 left-[-30px] transform -translate-y-1/2 text-black hover:text-gray-900 cursor-pointer z-10"
+    className="absolute top-1/2 left-[-40px] transform -translate-y-1/2 text-white hover:text-gray-300 cursor-pointer z-10"
     onClick={onClick}
+    style={{ zIndex: 10 }}
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -72,27 +76,31 @@ const clienteleAndPortfolio = [
 ];
 
 export function Professionals() {
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
+
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // Centered with fewer items
+    slidesToShow: 4, // Show 4 items on large screens
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    centerMode: true, // Enables centering
-    centerPadding: '0px', // Adjust padding for full focus
+    centerMode: true,
+    centerPadding: '0px',
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3, // 3 items on medium screens
         },
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 2, // 2 items on smaller screens
           centerMode: false,
           nextArrow: null,
           prevArrow: null,
@@ -102,20 +110,24 @@ export function Professionals() {
   };
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-black relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Section Header */}
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 font-montserrat">
+        <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 font-montserrat">
           Clientele and Portfolio
         </h2>
-        <p className="text-gray-600 mb-10 font-poppins">
+        <p className="text-white mb-10 font-poppins">
           Showcasing our esteemed clients and diverse projects from across the globe.
         </p>
 
         {/* Carousel Section */}
         <Slider {...settings}>
           {clienteleAndPortfolio.map((item) => (
-            <div key={item.name} className="p-4">
+            <div
+              key={item.name}
+              className="p-4"
+              data-aos="fade-up" // AOS Animation
+            >
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer border border-gray-200">
                 <img
                   src={item.image}

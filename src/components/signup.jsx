@@ -1,26 +1,45 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom"; 
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
-const LoginPage = () => {
-  const [email, setEmail] = useState("");
+const SignUpPage = () => {
+  const location = useLocation();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState(location.state?.email || ""); // Prefill email if passed from the previous page
   const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [agreeToTerms, setAgreeToTerms] = useState(false);
 
-  const handleLogin = (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
-    // Handle login logic
+    // Handle signup logic
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 font-poppins">
-      <div className="flex flex-col sm:flex-row w-full max-w-4xl bg-white rounded-lg shadow-lg mt-20 sm:mt-0">
-        {/* Left side: Login Form */}
+      <div className="flex flex-col sm:flex-row w-full max-w-4xl bg-white rounded-lg shadow-lg mt-44 sm:mt-12">
+        {/* Left side: Sign Up Form */}
         <div className="w-full sm:w-1/2 p-8 space-y-6 flex flex-col justify-between">
           <h2 className="text-3xl font-semibold text-gray-800 text-center font-montserrat">
-            TheBeeBark Login
+            TheBeeBark Sign Up
           </h2>
 
-          <form onSubmit={handleLogin} className="space-y-4">
+          <form onSubmit={handleSignUp} className="space-y-4">
+            {/* Name Input */}
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-600">
+                Full Name
+              </label>
+              <input
+                id="name"
+                type="text"
+                placeholder="Enter your full name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
+                required
+              />
+            </div>
+
             {/* Email Input */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-600">
@@ -32,7 +51,7 @@ const LoginPage = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
                 required
               />
             </div>
@@ -48,61 +67,62 @@ const LoginPage = () => {
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
                 required
               />
             </div>
 
-            {/* Remember Me Checkbox */}
+            {/* Confirm Password Input */}
+            <div>
+              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-600">
+                Confirm Password
+              </label>
+              <input
+                id="confirmPassword"
+                type="password"
+                placeholder="Confirm your password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
+                required
+              />
+            </div>
+
+            {/* Agree to Terms Checkbox */}
             <div className="flex items-center mb-6">
               <input
                 type="checkbox"
-                id="remember"
-                checked={rememberMe}
-                onChange={() => setRememberMe(!rememberMe)}
+                id="terms"
+                checked={agreeToTerms}
+                onChange={() => setAgreeToTerms(!agreeToTerms)}
                 className="h-4 w-4 text-blue-600 border-gray-300 rounded"
+                required
               />
-              <label htmlFor="remember" className="ml-2 text-sm text-gray-600">
-                Keep me signed in
+              <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
+                I agree to the <a href="/terms" className="text-green-600 hover:text-green-800">Terms and Conditions</a>
               </label>
             </div>
 
-            {/* Sign In Button */}
+            {/* Sign Up Button */}
             <button
               type="submit"
               className="w-full py-2 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              Sign In
+              Sign Up
             </button>
 
-            {/* Forgot Password Link */}
-            <div className="text-center mt-4 text-sm text-gray-600">
-              <a href="#" className="hover:text-blue-600">
-                Forgot Password?
-              </a>
-            </div>
-
-            {/* Join Us Link */}
+            {/* Already have an account? */}
             <div className="text-center text-sm text-gray-600 mt-4">
-              <span>Don't have an account? </span>
-              <Link
-                    to="/signup" className="text-green-600 hover:text-green-800">
-                Sign Up
-              </Link>
+              <span>Already have an account? </span>
+              <a href="/login" className="text-green-600 hover:text-green-800">
+                Log In
+              </a>
             </div>
           </form>
 
           {/* Legal Terms */}
           <div className="text-xs text-center mt-6 text-gray-500">
-            By signing up, signing in, or continuing, I agree to the{" "}
-            <a href="/terms" className="text-green-600 hover:text-green-800">
-              Terms and Conditions
-            </a>{" "}
-            and{" "}
-            <a href="/privacy" className="text-green-600 hover:text-green-800">
-              Privacy Policy
-            </a>
-            .
+            By signing up, I agree to the <a href="/privacy" className="text-green-600 hover:text-green-800">Privacy Policy</a>.
           </div>
         </div>
 
@@ -112,7 +132,7 @@ const LoginPage = () => {
           <div
             className="w-full sm:h-2/3 bg-cover bg-center hidden sm:block"
             style={{
-              backgroundImage: "url('/logo-chill.png')",
+              backgroundImage: "url('/logo-chill1.png')",
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -123,15 +143,15 @@ const LoginPage = () => {
           <div className="w-full p-6 bg-white flex flex-col items-center space-y-4">
             <button className="w-full py-2 text-black font-semibold rounded-md border-2 border-black hover:bg-gray-100 focus:outline-none flex items-center justify-center">
               <img src="/google_logo.png" alt="Google" className="mr-2 h-5 w-5" />
-              Continue with Google
+              Sign Up with Google
             </button>
             <button className="w-full py-2 text-black font-semibold rounded-md border-2 border-black hover:bg-gray-100 focus:outline-none flex items-center justify-center">
               <img src="/apple_logo.png" alt="Apple" className="mr-2 h-5 w-5" />
-              Continue with Apple
+              Sign Up with Apple
             </button>
             <button className="w-full py-2 text-black font-semibold rounded-md border-2 border-black hover:bg-gray-100 focus:outline-none flex items-center justify-center">
               <img src="/facebook_logo.png" alt="Facebook" className="mr-2 h-5 w-5" />
-              Continue with Facebook
+              Sign Up with Facebook
             </button>
           </div>
         </div>
@@ -140,4 +160,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignUpPage;

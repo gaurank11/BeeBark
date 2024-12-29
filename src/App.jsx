@@ -8,6 +8,7 @@ import LetsTalk from "./components/letstalk";
 import Contact from "./components/contact";
 import LoginPage from "./components/login";
 import JoinUs from "./components/join";
+import SignUpPage from "./components/signup";
 
 
 
@@ -24,6 +25,7 @@ export default function App() {
         <Route path ="/LetsTalk" element={<LetsTalk />} />
         <Route path ="/contact" element={<Contact />} />
         <Route path ="/login" element={<LoginPage />} />
+        <Route path ="/signup" element={<SignUpPage />} />
         <Route path ="/join" element={<JoinUs />} />
       </Routes>
       <Footer />

@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import { CheckCircle, Phone, Briefcase, MapPin, FileText } from "lucide-react"; // Import icons from Lucide React
+import { useLocation } from "react-router-dom";
+import { CheckCircle, Phone, Briefcase, MapPin, FileText } from "lucide-react";
 
 const JoinUs = () => {
-  const [email, setEmail] = useState("");
+  const location = useLocation();
+  const [email, setEmail] = useState(location.state?.email || "");
   const [password, setPassword] = useState("");
   const [businessName, setBusinessName] = useState("");
   const [phone, setPhone] = useState("");
   const [category, setCategory] = useState("");
   const [agree, setAgree] = useState(false);
-  const [countryCode, setCountryCode] = useState("+91"); // Default to US country code
+  const [countryCode, setCountryCode] = useState("+91");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,15 +18,14 @@ const JoinUs = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-6 sm:px-8 font-poppins mt-24"> {/* Added mt-24 for space below header */}
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-6 sm:px-8 font-poppins mt-24">
       <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg p-8 sm:p-10 flex flex-col sm:flex-row space-y-6 sm:space-y-0">
         {/* Left side: Form */}
         <div className="w-full sm:w-1/2 space-y-6">
           <span className="text-3xl font-semibold text-gray-800 text-left">
-            Join TheBeeBark 
-          </span> <span className="text-3xl font-semibold text-green-600 ">
-          PRO
+            Join TheBeeBark
           </span>
+          <span className="text-3xl font-semibold text-green-600"> PRO</span>
           <p className="text-left text-gray-600 text-lg">
             Unlock TheBeeBark PRO! Complete your profile to start using TheBeeBark PRO today.
           </p>
@@ -88,11 +89,10 @@ const JoinUs = () => {
                 required
               >
                 <option value="">Select Category</option>
-                <option value="web_developer">Architect</option>
-                <option value="graphic_designer">Web Developer</option>
-                <option value="seo_expert">Real Estate</option>
-                <option value="consultant">Designer</option>
-                {/* Add other categories here */}
+                <option value="architect">Architect</option>
+                <option value="web_developer">Web Developer</option>
+                <option value="real_estate">Real Estate</option>
+                <option value="designer">Designer</option>
               </select>
             </div>
 
@@ -109,11 +109,10 @@ const JoinUs = () => {
                   className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
                   required
                 >
-                 <option value="+91">+91 (India)</option>
+                  <option value="+91">+91 (India)</option>
                   <option value="+1">+1 (US)</option>
                   <option value="+44">+44 (UK)</option>
                   <option value="+61">+61 (Australia)</option>
-                  {/* Add more country codes here */}
                 </select>
               </div>
               <div className="w-3/4">
@@ -165,38 +164,20 @@ const JoinUs = () => {
         </div>
 
         {/* Right side: Benefits with Icons */}
-        <div className="w-full sm:w-1/2 space-y-8 pt-8 sm:pt-0 md:mx-14">
-          <div className="space-y-4">
-            <div className="flex items-start space-x-4">
-              <CheckCircle className="h-5 w-5 text-green-600" />
-              <p className="text-sm text-gray-600">
-                Your Pro directory profile is how potential clients find you on TheBeeBark.
-              </p>
-            </div>
-            <div className="flex items-start space-x-4">
-              <Briefcase className="h-5 w-5 text-green-600" />
-              <p className="text-sm text-gray-600">
-                Include your business name, and it will appear in TheBeeBark PRO directory search results.
-              </p>
-            </div>
-            <div className="flex items-start space-x-4">
-              <MapPin className="h-5 w-5 text-green-600" />
-              <p className="text-sm text-gray-600">
-                Choose the business type that best fits your business to target the right clients.
-              </p>
-            </div>
-            <div className="flex items-start space-x-4">
-              <Phone className="h-5 w-5 text-green-600" />
-              <p className="text-sm text-gray-600">
-                Provide your phone number for clients to contact you directly from your Pro directory profile.
-              </p>
-            </div>
-            <div className="flex items-start space-x-4">
-              <FileText className="h-5 w-5 text-green-600" />
-              <p className="text-sm text-gray-600">
-                Complete your profile to start showcasing your services and get more clients.
-              </p>
-            </div>
+        <div className="w-full sm:w-1/2 space-y-8 pt-8 sm:pt-0 sm:pl-8">
+          <div className="space-y-6">
+            {[
+              { Icon: CheckCircle, text: "Your Pro directory profile is how potential clients find you on TheBeeBark." },
+              { Icon: Briefcase, text: "Include your business name, and it will appear in TheBeeBark PRO directory search results." },
+              { Icon: MapPin, text: "Choose the business type that best fits your business to target the right clients." },
+              { Icon: Phone, text: "Provide your phone number for clients to contact you directly from your Pro directory profile." },
+              { Icon: FileText, text: "Complete your profile to start showcasing your services and get more clients." },
+            ].map(({ Icon, text }, index) => (
+              <div key={index} className="flex items-start space-x-6">
+                <Icon className="h-7 w-7 text-green-600" />
+                <p className="text-base text-gray-700">{text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -94,7 +94,7 @@ export default function LetsTalk() {
         </div>
 
         {/* Image Section */}
-        <div className="flex items-center justify-center">
+        <div className=" items-center justify-center hidden md:flex">
           <img
             src="/c5.jpeg"
             alt="Let's talk"
