@@ -1,175 +1,102 @@
-/* Basic styling for the services section */
-.services {
-  padding: 50px;
-  text-align: center;
-}
-
-.services-heading {
-  font-size: 3rem;
-  margin-bottom: 40px;
-  font-weight: bold;
-}
-
-/* Styling for the content grid */
-.services-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+/* Base Styles */
+.services-wrapper {
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-.logo-img {
-    width: 400px;  /* Adjust the width as needed */
-    height: 250px;  /* Adjust the height to match the width for a square */
-    object-fit: fit;  /* Ensures the image covers the square without distortion */
-    border-radius: 0;  
-  transition: transform 0.1s ease-in-out;
+.services-title {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4rem;
+  font-weight: bold;
+  color: #333;
+  z-index: 2;
 }
 
-.service-details {
-  text-align: left;
-  max-width: 600px;
-  padding-left: 20px;
+.services-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 60%;
+}
+
+.services-image {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.services-image img {
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
+}
+
+.image.down {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.image.up {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.image {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.services-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .service-title {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 2.5rem;
   margin-bottom: 20px;
+  transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
 }
 
-.service-list {
-  list-style-type: none;
-  padding: 0;
+.service-title span {
+  font-size: 2rem;
+  color: #555;
 }
 
-.service-item {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
+.service-description {
+  font-size: 1.2rem;
+  color: #666;
+  transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
 }
 
-/* Service names section with underline animation */
-.service-names {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap; /* Allow wrapping on small screens */
-  transition: transform 0.3s ease-out;
+.service-title.down,
+.service-description.down {
+  transform: translateX(-100%);
+  opacity: 0;
 }
 
-.service-name {
-  font-size: 1.3rem;
-  cursor: pointer;
-  position: relative;
-  padding-bottom: 5px;
-  transition: color 0.3s ease;
+.service-title.up,
+.service-description.up {
+  transform: translateX(100%);
+  opacity: 0;
 }
 
-.service-name::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 3px;
-  background-color: green;
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.3s ease-out;
-}
-
-.service-name.active {
-  color: green;
-}
-
-.service-name.active::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-/* Responsive design */
-@media (max-width: 1024px) {
-  .services-content {
-    grid-template-columns: 1fr;
-  }
-
-  .service-names {
-    gap: 20px; /* Reduce gap for smaller screens */
-  }
-
-  .service-name {
-    font-size: 1.1rem; /* Slightly smaller text on mobile */
-  }
-
-  .service-name.active {
-    font-size: 1.2rem; /* Highlight active service name slightly bigger */
-  }
-
-  .logo-img {
-    max-width: 70%; /* Make logo smaller on mobile */
-    margin-bottom: 20px;
-    transform: scale(0.9); /* Slight scale effect */
-  }
-
-  .service-details {
-    padding-left: 0; /* Remove padding for mobile */
-    text-align: center;
-  }
-
-  .service-title {
-    font-size: 1.8rem; /* Reduce title font size for mobile */
-  }
-
-  .service-item {
-    font-size: 1rem; /* Smaller font size for mobile */
-  }
-
-  .service-names {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .service-name {
-    font-size: 1.2rem;
-    padding-bottom: 4px; /* Adjust padding for mobile */
-  }
-}
-
-@media (max-width: 480px) {
-  /* For smaller mobile devices, tweak logo size and text */
-  .logo-img {
-    max-width: 60%; /* Even smaller logos on very small screens */
-    transform: scale(0.8); /* Slight reduction in logo size */
-  }
-
-  .service-title {
-    font-size: 1.6rem; /* Reduce title font size further */
-  }
-
-  .service-item {
-    font-size: 0.95rem; /* Even smaller font size on small devices */
-  }
-
-  .service-name {
-    font-size: 1rem; /* Shrink service name font further for smaller devices */
-  }
-}
-
-/* For larger laptop screens */
-@media (min-width: 1025px) {
-  .service-names {
-    margin-top: 50px; /* Larger gap for laptops */
-  }
-
-  .service-name {
-    font-size: 1.4rem; /* Larger text size for larger screens */
-    margin-right: 30px;
-  }
-
-  .service-name.active::after {
-    height: 4px; /* Slightly thicker underline */
-  }
+.service-title,
+.service-description {
+  transform: translateX(0);
+  opacity: 1;
 }

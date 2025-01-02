@@ -15,13 +15,12 @@ export default function App() {
     <>
       {/* Header Section */}
       <header className="fixed top-0 left-0 w-full p-5 flex justify-between items-center z-50 bg-white">
-       
         <div className="flex-shrink-0">
           <Link to="/" onClick={() => setMenuOpen(false)}>
             <img
-              src="/bb-logo.png" // Replace with the actual image path
+              src="/bb-logo.png" 
               alt="Logo"
-              className="h-12 w-auto" // Increased size for better visibility
+              className="h-12 w-auto" 
             />
           </Link>
         </div>
@@ -81,7 +80,7 @@ export default function App() {
       >
         <div className="flex flex-row h-full">
           {/* Menu Items */}
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 text-center md:text-left">
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 text-center md:text-left flex-1">
             <div className="flex flex-col justify-center items-start h-full md:mx-10">
               <ul className="space-y-7 text-xl md:text-5xl font-bold font-montserrat text-left md:mx-12">
                 <li>

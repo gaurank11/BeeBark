@@ -78,7 +78,7 @@ export function Categories() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 5, // Show 5 items for large screens
+    slidesToShow: 4, // Show 5 items for large screens
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
@@ -115,7 +115,7 @@ export function Categories() {
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl md:text-2xl font-bold text-gray-900">Explore Web Designs</h2>
           <button
-            onClick={() => (window.location.href = '/categories')} // Replace with your actual navigation logic
+            onClick={() => (window.location.href = '/categories')}
             className="text-green-700 text-sm font-semibold hover:underline"
           >
             See All
