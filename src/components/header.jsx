@@ -41,7 +41,7 @@ export default function App() {
                 </Link>
               </span>
             </div>
-            <div className="flex items-center text-black font-bold space-x-2 cursor-pointer md:border-2 md:border-white md:px-4 md:py-2 md:rounded-lg font-poppins">
+            <div className="flex items-center text-black font-bold space-x-2 cursor-pointer md:border-2 md:border-black md:px-4 md:py-2 md:rounded-lg font-poppins">
               <UserPlus className="w-5 h-5" />
               <span>
                 <Link
