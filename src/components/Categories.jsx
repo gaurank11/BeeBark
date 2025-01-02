@@ -113,7 +113,7 @@ export function Categories() {
       <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl md:text-2xl font-bold text-gray-900">Explore Web Designs</h2>
+          <h2 className="text-xl md:text-3xl font-bold text-gray-900">Explore Web Designs</h2>
           <button
             onClick={() => (window.location.href = '/categories')}
             className="text-green-700 text-sm font-semibold hover:underline"
@@ -131,7 +131,7 @@ export function Categories() {
                   <img
                     src={category.image}
                     alt={category.name}
-                    className="w-full h-40 object-cover transition-transform transform hover:scale-110"
+                    className="w-full h-48 object-cover transition-transform transform hover:scale-110"
                   />
                 </div>
                 <div className="flex flex-col justify-between h-full text-center p-4">

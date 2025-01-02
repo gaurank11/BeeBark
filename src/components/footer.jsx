@@ -98,7 +98,7 @@ export default function Footer() {
           </div>
 
           <div className="border-t border-gray-700 mt-12 pt-6 text-center">
-            <p className="text-gray-500 text-sm lg:text-md">© 2024 Beebark. All Rights Reserved.</p>
+            <p className="text-gray-500 text-sm lg:text-md">© 2025 Beebark. All Rights Reserved.</p>
           </div>
         </div>
       </footer>

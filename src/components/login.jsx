@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Eye, EyeOff } from "lucide-react"; // Import eye icons
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -37,25 +39,33 @@ const LoginPage = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
                 required
               />
             </div>
 
             {/* Password Input */}
-            <div>
+            <div className="relative">
               <label htmlFor="password" className="block text-sm font-medium text-gray-600">
                 Password
               </label>
               <input
                 id="password"
-                type="password"
+                type={showPassword ? "text" : "password"} // Toggle password visibility
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
                 required
               />
+              {/* Eye icon for toggling password visibility */}
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-10 transform  text-gray-600"
+              >
+                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              </button>
             </div>
 
             {/* Remember Me Checkbox */}
@@ -91,7 +101,7 @@ const LoginPage = () => {
             <div className="text-center text-sm text-gray-600 mt-4">
               <span>Don't have an account? </span>
               <Link
-                    to="/signup" className="text-green-600 hover:text-green-800">
+                to="/signup" className="text-green-600 hover:text-green-800">
                 Sign Up
               </Link>
             </div>

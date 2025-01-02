@@ -22,12 +22,17 @@ export default function HeroSection() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        // Check if the video is in view
         const entry = entries[0];
         if (entry.isIntersecting) {
           setIsInView(true);
+          if (videoRef.current) {
+            videoRef.current.play(); // Play video when in view
+          }
         } else {
           setIsInView(false);
+          if (videoRef.current) {
+            videoRef.current.pause(); // Pause video when out of view
+          }
         }
       },
       { threshold: 0.5 } // Trigger when 50% of the video is in the viewport
@@ -56,9 +61,9 @@ export default function HeroSection() {
         ref={videoRef} // Reference to the video element
         className="absolute inset-0 w-full h-full object-cover"
         muted={isMuted}
-        autoPlay={isInView} // Play only when in view
         loop
         playsInline
+        // The autoPlay is not needed here as we manually control it
       >
         <source src="video.mp4" type="video/mp4" />
         <source src="video.webm" type="video/webm" />

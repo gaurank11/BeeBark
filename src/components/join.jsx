@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { CheckCircle, Phone, Briefcase, MapPin, FileText } from "lucide-react";
+import { CheckCircle, Phone, Briefcase, MapPin, FileText, Eye, EyeOff } from "lucide-react";
 
 const JoinUs = () => {
   const location = useLocation();
@@ -9,8 +9,10 @@ const JoinUs = () => {
   const [businessName, setBusinessName] = useState("");
   const [phone, setPhone] = useState("");
   const [category, setCategory] = useState("");
+  const [otherCategory, setOtherCategory] = useState("");
   const [agree, setAgree] = useState(false);
   const [countryCode, setCountryCode] = useState("+91");
+  const [showPassword, setShowPassword] = useState(false); // State for toggling password visibility
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,14 +53,23 @@ const JoinUs = () => {
               <label htmlFor="password" className="block text-sm font-medium text-gray-600">
                 Password
               </label>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
-                required
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"} // Toggle between text and password
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-5 text-gray-600"
+                >
+                  {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                </button>
+              </div>
             </div>
 
             {/* Business Name */}
@@ -93,8 +104,26 @@ const JoinUs = () => {
                 <option value="web_developer">Web Developer</option>
                 <option value="real_estate">Real Estate</option>
                 <option value="designer">Designer</option>
+                <option value="others">Others</option>
               </select>
             </div>
+
+            {/* Additional input for "Others" category */}
+            {category === "others" && (
+              <div>
+                <label htmlFor="otherCategory" className="block text-sm font-medium text-gray-600">
+                  Please specify
+                </label>
+                <input
+                  type="text"
+                  id="otherCategory"
+                  value={otherCategory}
+                  onChange={(e) => setOtherCategory(e.target.value)}
+                  className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
+                  required
+                />
+              </div>
+            )}
 
             {/* Business Phone Number with Country Code */}
             <div className="flex items-center space-x-4">
@@ -109,10 +138,59 @@ const JoinUs = () => {
                   className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
                   required
                 >
+                  {/* Country options */}
                   <option value="+91">+91 (India)</option>
-                  <option value="+1">+1 (US)</option>
-                  <option value="+44">+44 (UK)</option>
-                  <option value="+61">+61 (Australia)</option>
+                <option value="+1">+1 (US, Canada, etc.)</option>
+                <option value="+44">+44 (UK)</option>
+                <option value="+61">+61 (Australia)</option>
+                <option value="+33">+33 (France)</option>
+                <option value="+49">+49 (Germany)</option>
+                <option value="+81">+81 (Japan)</option>
+                <option value="+55">+55 (Brazil)</option>
+                <option value="+86">+86 (China)</option>
+                <option value="+27">+27 (South Africa)</option>
+                <option value="+34">+34 (Spain)</option>
+                <option value="+39">+39 (Italy)</option>
+                <option value="+7">+7 (Russia, Kazakhstan)</option>
+                <option value="+52">+52 (Mexico)</option>
+                <option value="+47">+47 (Norway)</option>
+                <option value="+41">+41 (Switzerland)</option>
+                <option value="+47">+47 (Norway)</option>
+                <option value="+46">+46 (Sweden)</option>
+                <option value="+55">+55 (Brazil)</option>
+                <option value="+971">+971 (UAE)</option>
+                <option value="+92">+92 (Pakistan)</option>
+                <option value="+20">+20 (Egypt)</option>
+                <option value="+62">+62 (Indonesia)</option>
+                <option value="+63">+63 (Philippines)</option>
+                <option value="+45">+45 (Denmark)</option>
+                <option value="+20">+20 (Egypt)</option>
+                <option value="+28">+28 (Algeria)</option>
+                <option value="+66">+66 (Thailand)</option>
+                <option value="+92">+92 (Pakistan)</option>
+                <option value="+90">+90 (Turkey)</option>
+                <option value="+54">+54 (Argentina)</option>
+                <option value="+64">+64 (New Zealand)</option>
+                <option value="+48">+48 (Poland)</option>
+                <option value="+53">+53 (Cuba)</option>
+                <option value="+356">+356 (Malta)</option>
+                <option value="+961">+961 (Lebanon)</option>
+                <option value="+973">+973 (Bahrain)</option>
+                <option value="+962">+962 (Jordan)</option>
+                <option value="+357">+357 (Cyprus)</option>
+                <option value="+421">+421 (Slovakia)</option>
+                <option value="+380">+380 (Ukraine)</option>
+                <option value="+383">+383 (Kosovo)</option>
+                <option value="+385">+385 (Croatia)</option>
+                <option value="+354">+354 (Iceland)</option>
+                <option value="+32">+32 (Belgium)</option>
+                <option value="+31">+31 (Netherlands)</option>
+                <option value="+31">+31 (Luxembourg)</option>
+                <option value="+420">+420 (Czech Republic)</option>
+                <option value="+41">+41 (Switzerland)</option>
+                <option value="+961">+961 (Lebanon)</option>
+                <option value="+974">+974 (Qatar)</option>
+                 
                 </select>
               </div>
               <div className="w-3/4">
