@@ -1,59 +1,108 @@
 import React, { useState } from "react";
-import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/outline";
-import { LogIn, UserPlus, Instagram, Twitter, Facebook } from "lucide-react";
+import { XMarkIcon, Bars3Icon, BellIcon } from "@heroicons/react/24/outline";
+import { LogIn, UserPlus,Instagram, Twitter, Facebook } from "lucide-react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom"; // React Router for navigation
+import { Link, useNavigate } from "react-router-dom";
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    Boolean(localStorage.getItem("userToken"))
+  );
+  const [profileMenuOpen, setProfileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const toggleProfileMenu = () => setProfileMenuOpen(!profileMenuOpen);
+
+  const handleLogout = () => {
+    localStorage.removeItem("userToken");
+    localStorage.removeItem("userDetails");
+    setIsLoggedIn(false);
+    setProfileMenuOpen(false);
+    navigate("/login");
   };
 
   return (
     <>
       {/* Header Section */}
-      <header className="fixed top-0 left-0 w-full p-5 flex justify-between items-center z-50 bg-white">
+      <header className="fixed top-0 left-0 w-full p-5 flex justify-between items-center z-50 bg-white shadow-md">
         <div className="flex-shrink-0">
           <Link to="/" onClick={() => setMenuOpen(false)}>
-            <img
-              src="/bb-logo.png" 
-              alt="Logo"
-              className="h-12 w-auto" 
-            />
+            <img src="/bb-logo.png" alt="Logo" className="h-12 w-auto" />
           </Link>
         </div>
 
-        {/* Right-side Buttons and Menu Icon */}
+        {/* Right-side Icons and Menu */}
         <div className="flex items-center space-x-5">
-          {/* Sign In and Join as a Pro */}
-          <div className="hidden md:flex items-center space-x-5">
-            <div className="flex items-center text-black font-bold space-x-2 cursor-pointer font-poppins">
-              <LogIn className="w-5 h-5" />
-              <span>
-                <Link
-                  to="/login"
-                  onClick={() => setMenuOpen(false)}
-                  className="hover:text-gray-700"
-                >
-                  Login
-                </Link>
-              </span>
+          {isLoggedIn ? (
+            <div className="flex items-center space-x-4 relative">
+              {/* Notification Bell Icon */}
+              <BellIcon className="w-6 h-6 text-black cursor-pointer" />
+
+              {/* Profile Avatar */}
+              <div
+                className="relative cursor-pointer"
+                onClick={toggleProfileMenu}
+              >
+                <img
+                  src="/profile_icon.png" // Replace with user profile image if available
+                  alt="Profile Avatar"
+                  className="w-10 h-10 rounded-full border-2 border-gray-300"
+                />
+                {profileMenuOpen && (
+                  <motion.div
+                    className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ul className="py-2">
+                      <li
+                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                        onClick={() => navigate("/profile")}
+                      >
+                        Profile
+                      </li>
+                      <li
+                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-red-600"
+                        onClick={handleLogout}
+                      >
+                        Logout
+                      </li>
+                    </ul>
+                  </motion.div>
+                )}
+              </div>
             </div>
-            <div className="flex items-center text-black font-bold space-x-2 cursor-pointer md:border-2 md:border-black md:px-4 md:py-2 md:rounded-lg font-poppins">
-              <UserPlus className="w-5 h-5" />
-              <span>
-                <Link
-                  to="/join"
-                  onClick={() => setMenuOpen(false)}
-                  className="hover:text-gray-700"
-                >
-                  Join as a Pro
-                </Link>
-              </span>
+          ) : (
+            <div className="hidden md:flex items-center space-x-5">
+              <div className="flex items-center text-black font-bold space-x-2 cursor-pointer font-poppins">
+                <LogIn className="w-5 h-5" />
+                <span>
+                  <Link
+                    to="/login"
+                    onClick={() => setMenuOpen(false)}
+                    className="hover:text-gray-700"
+                  >
+                    Login
+                  </Link>
+                </span>
+              </div>
+              <div className="flex items-center text-black font-bold space-x-2 cursor-pointer md:border-2 md:border-black md:px-4 md:py-2 md:rounded-lg font-poppins">
+                <UserPlus className="w-5 h-5" />
+                <span>
+                  <Link
+                    to="/join"
+                    onClick={() => setMenuOpen(false)}
+                    className="hover:text-gray-700"
+                  >
+                    Join as a Pro
+                  </Link>
+                </span>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Menu Icon */}
           <div
@@ -69,8 +118,8 @@ export default function App() {
         </div>
       </header>
 
-      {/* Fixed Full-Screen Menu */}
-      <motion.div
+       {/* Fixed Full-Screen Menu */}
+       <motion.div
         className={`fixed top-0 left-0 w-full h-full bg-white text-black p-6 z-40 ${
           menuOpen ? "transform translate-x-0" : "transform -translate-x-full"
         }`}
