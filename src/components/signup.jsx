@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUpPage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState(location.state?.email || ""); // Prefill email if passed from the previous page
   const [password, setPassword] = useState("");
@@ -27,7 +30,7 @@ const SignUpPage = () => {
     };
 
     try {
-      const response = await fetch("https://localhost:44376/api/user/register", {
+      const response = await fetch("http://localhost:5000/api/user/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,19 +41,23 @@ const SignUpPage = () => {
       const result = await response.json();
 
       if (response.ok) {
-        // Success: Redirect or show success message
-        alert(result.message);
+        // Success: Display success toast and navigate to Sign In
+        toast.success("Account created successfully!");
+        setTimeout(() => navigate("/login"), 2000); // Redirect after 2 seconds
       } else {
-        // Error: Display error message
+        // Error: Display error toast
         setErrorMessage(result.message || "Something went wrong!");
+        toast.error(result.message || "Something went wrong!");
       }
     } catch (error) {
       setErrorMessage("Failed to connect to the server.");
+      toast.error("Failed to connect to the server.");
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 font-poppins">
+      <ToastContainer />
       <div className="flex flex-col sm:flex-row w-full max-w-4xl bg-white rounded-lg shadow-lg mt-44 sm:mt-12">
         {/* Left side: Sign Up Form */}
         <div className="w-full sm:w-1/2 p-8 space-y-6 flex flex-col justify-between">
@@ -139,7 +146,10 @@ const SignUpPage = () => {
                 required
               />
               <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
-                I agree to the <a href="/terms" className="text-green-600 hover:text-green-800">Terms and Conditions</a>
+                I agree to the{" "}
+                <a href="/terms" className="text-green-600 hover:text-green-800">
+                  Terms and Conditions
+                </a>
               </label>
             </div>
 
@@ -162,7 +172,11 @@ const SignUpPage = () => {
 
           {/* Legal Terms */}
           <div className="text-xs text-center mt-6 text-gray-500">
-            By signing up, I agree to the <a href="/privacy" className="text-green-600 hover:text-green-800">Privacy Policy</a>.
+            By signing up, I agree to the{" "}
+            <a href="/privacy" className="text-green-600 hover:text-green-800">
+              Privacy Policy
+            </a>
+            .
           </div>
         </div>
 
