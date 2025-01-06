@@ -62,7 +62,7 @@ export default function Footer() {
             </div>
 
             {/* Right Section */}
-            <div className="lg:w-1/2">
+            <div className="lg:w-1/2 lg:mt-14">
               {/* Get in Touch */}
               <div className="mb-8">
                 <h3 className="text-2xl font-bold mb-4 md:text-3xl font-poppins">Get in Touch</h3>

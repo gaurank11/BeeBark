@@ -4,6 +4,8 @@ import { useLocation } from "react-router-dom";
 export default function LetsTalk() {
   const location = useLocation();
   const [helpType, setHelpType] = useState("");
+  const [category, setCategory] = useState("");
+  const [otherCategory, setOtherCategory] = useState("");
 
   useEffect(() => {
     if (location.state && location.state.helpType) {
@@ -14,7 +16,7 @@ export default function LetsTalk() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Form submission logic here
-    console.log("Form submitted");
+    console.log("Form submitted with industry:", category, "Other Category:", otherCategory);
   };
 
   return (
@@ -74,6 +76,43 @@ export default function LetsTalk() {
             </div>
 
             <div className="mb-6">
+              <label htmlFor="category" className="block text-gray-700 font-medium mb-2">
+                Industry
+              </label>
+              <select
+                id="category"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="w-full p-4 border border-gray-300 rounded-md"
+                required
+              >
+                <option value="">Select Category</option>
+                <option value="architect">Architect</option>
+                <option value="web_developer">Web Developer</option>
+                <option value="real_estate">Real Estate</option>
+                <option value="designer">Designer</option>
+                <option value="others">Others</option>
+              </select>
+            </div>
+
+            {/* Additional input for "Others" category */}
+            {category === "others" && (
+              <div className="mb-6">
+                <label htmlFor="otherCategory" className="block text-gray-700 font-medium mb-2">
+                  Please Specify
+                </label>
+                <input
+                  type="text"
+                  id="otherCategory"
+                  value={otherCategory}
+                  onChange={(e) => setOtherCategory(e.target.value)}
+                  className="w-full p-4 border border-gray-300 rounded-md"
+                  required
+                />
+              </div>
+            )}
+
+            <div className="mb-6">
               <label className="block text-gray-700 font-medium mb-2" htmlFor="message">
                 Tell Us More
               </label>
@@ -94,7 +133,7 @@ export default function LetsTalk() {
         </div>
 
         {/* Image Section */}
-        <div className=" items-center justify-center hidden md:flex">
+        <div className="items-center justify-center hidden md:flex">
           <img
             src="/c5.jpeg"
             alt="Let's talk"

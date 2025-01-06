@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { Eye, EyeOff } from "lucide-react"; // Import the Eye and EyeOff icons
 
 const SignUpPage = () => {
   const location = useLocation();
@@ -9,12 +8,45 @@ const SignUpPage = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [agreeToTerms, setAgreeToTerms] = useState(false);
-  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // State to toggle confirm password visibility
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSignUp = (e) => {
+  // Handle SignUp form submission
+  const handleSignUp = async (e) => {
     e.preventDefault();
-    // Handle signup logic
+
+    if (password !== confirmPassword) {
+      setErrorMessage("Passwords do not match!");
+      return;
+    }
+
+    const userData = {
+      name,
+      email,
+      password,
+      confirmPassword,
+    };
+
+    try {
+      const response = await fetch("https://localhost:44376/api/user/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        // Success: Redirect or show success message
+        alert(result.message);
+      } else {
+        // Error: Display error message
+        setErrorMessage(result.message || "Something went wrong!");
+      }
+    } catch (error) {
+      setErrorMessage("Failed to connect to the server.");
+    }
   };
 
   return (
@@ -64,24 +96,15 @@ const SignUpPage = () => {
               <label htmlFor="password" className="block text-sm font-medium text-gray-600">
                 Password
               </label>
-              <div className="relative">
-                <input
-                  id="password"
-                  type={showPassword ? "text" : "password"} // Toggle password visibility
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
-                  required
-                />
-                <button
-                  type="button"
-                  className="absolute inset-y-0 right-0 flex items-center justify-center px-3"
-                  onClick={() => setShowPassword(!showPassword)} // Toggle showPassword state
-                >
-                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />} {/* Use Eye or EyeOff icon */}
-                </button>
-              </div>
+              <input
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
+                required
+              />
             </div>
 
             {/* Confirm Password Input */}
@@ -89,25 +112,21 @@ const SignUpPage = () => {
               <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-600">
                 Confirm Password
               </label>
-              <div className="relative">
-                <input
-                  id="confirmPassword"
-                  type={showConfirmPassword ? "text" : "password"} // Toggle confirm password visibility
-                  placeholder="Confirm your password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
-                  required
-                />
-                <button
-                  type="button"
-                  className="absolute inset-y-0 right-0 flex items-center justify-center px-3"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)} // Toggle showConfirmPassword state
-                >
-                  {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />} {/* Use Eye or EyeOff icon */}
-                </button>
-              </div>
+              <input
+                id="confirmPassword"
+                type="password"
+                placeholder="Confirm your password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
+                required
+              />
             </div>
+
+            {/* Error Message */}
+            {errorMessage && (
+              <div className="text-red-500 text-center mt-4">{errorMessage}</div>
+            )}
 
             {/* Agree to Terms Checkbox */}
             <div className="flex items-center mb-6">
